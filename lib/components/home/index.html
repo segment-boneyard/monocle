@@ -1,4 +1,54 @@
 <div class="col-xs-10 col-xs-offset-1">
 	<h1>Segment Monocle</h1>
 	<p>"Make collecting customer data easy."</p>
+
+  <div class="simulator-container">
+    <div class="simulator-input">
+      <span>SourceId:</span>
+      <input type="text" ng-model="simulator.event.sourceId">
+    </div>
+    <div>
+      <span>Write Key:</span>
+      <input type="text" ng-model="simulator.event.writeKey">
+    </div>
+    <div class="simulator-input">
+      <span>Integration:</span>
+      <select ng-model="simulator.event.integrationSlug">
+        <option ng-repeat="integration in simulator.integrations" value="{{ integration.slug }}">{{ integration.name }}</option>
+      </select>
+    </div>
+    <div class="simulator-input">
+      <span>Segment Event Payload:</span>
+      <div>
+        <span>Type:</span>
+        <select ng-model="simulator.event.type">
+          <option ng-repeat="type in simulator.eventTypes" value="{{ type }}">{{ type }}</option>
+        </select>
+      </div>
+      <div>
+        <span>userId:</span>
+        <input type="text" ng-model="simulator.event.userId">
+      </div>
+      <div ng-show="simulator.event.type == 'identify'">
+        <span>Traits:</span>
+        <textarea rows="8" cols="40" ng-model="simulator.event.traits"></textarea>
+      </div>
+      <div ng-show="simulator.event.type != 'identify'">
+        <span>Properties:</span>
+        <textarea rows="8" cols="40" ng-model="simulator.event.properties"></textarea>
+      </div>
+      <div>
+        <span>Context:</span>
+        <textarea rows="8" cols="40" ng-model="simulator.event.context"></textarea>
+      </div>
+      <div>
+        <span>Integration Options:</span>
+        <textarea rows="8" cols="40" ng-model="simulator.event.integrations"></textarea>
+      </div>
+    </div>
+
+    <div>
+      <button ng-click="simulator.simulate()">Simulate</button>
+    </div>
+  </div>
 </div>
