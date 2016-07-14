@@ -4,12 +4,12 @@
 
   <div class="simulator-container">
     <div class="simulator-input">
-      <span>SourceId:</span>
-      <input type="text" ng-model="simulator.event.sourceId">
+      <span>Workspace Name:</span>
+      <input type="text" ng-model="simulator.event.workspaceName">
     </div>
-    <div>
-      <span>Write Key:</span>
-      <input type="text" ng-model="simulator.event.writeKey">
+    <div class="simulator-input">
+      <span>Source Name:</span>
+      <input type="text" ng-model="simulator.event.sourceName">
     </div>
     <div class="simulator-input">
       <span>Integration:</span>
@@ -19,29 +19,29 @@
     </div>
     <div class="simulator-input">
       <span>Segment Event Payload:</span>
-      <div>
+      <div class="simulator-input">
         <span>Type:</span>
         <select ng-model="simulator.event.type">
           <option ng-repeat="type in simulator.eventTypes" value="{{ type }}">{{ type }}</option>
         </select>
       </div>
-      <div>
+      <div class="simulator-input">
         <span>userId:</span>
         <input type="text" ng-model="simulator.event.userId">
       </div>
-      <div ng-show="simulator.event.type == 'identify'">
+      <div class="simulator-input" ng-show="simulator.event.type == 'identify'">
         <span>Traits:</span>
         <textarea rows="8" cols="40" ng-model="simulator.event.traits"></textarea>
       </div>
-      <div ng-show="simulator.event.type != 'identify'">
+      <div class="simulator-input" ng-show="simulator.event.type != 'identify'">
         <span>Properties:</span>
         <textarea rows="8" cols="40" ng-model="simulator.event.properties"></textarea>
       </div>
-      <div>
+      <div class="simulator-input">
         <span>Context:</span>
         <textarea rows="8" cols="40" ng-model="simulator.event.context"></textarea>
       </div>
-      <div>
+      <div class="simulator-input">
         <span>Integration Options:</span>
         <textarea rows="8" cols="40" ng-model="simulator.event.integrations"></textarea>
       </div>
